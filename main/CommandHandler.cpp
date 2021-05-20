@@ -1161,7 +1161,7 @@ void CommandHandlerClass::begin()
 
   WiFi.onReceive(CommandHandlerClass::onWiFiReceive);
 
-  xTaskCreatePinnedToCore(CommandHandlerClass::gpio0Updater, "gpio0Updater", 8192, NULL, 1, NULL, 1);
+  xTaskCreate(CommandHandlerClass::gpio0Updater, "gpio0Updater", 8192, NULL, 1, NULL);
 }
 
 int CommandHandlerClass::handle(const uint8_t command[], uint8_t response[])

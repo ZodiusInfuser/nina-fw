@@ -35,6 +35,6 @@ void arduino_main(void*) {
 
 extern "C" {
   void app_main() {
-    xTaskCreatePinnedToCore(arduino_main, "arduino", 8192, NULL, 1, NULL, 1);
+    xTaskCreate(arduino_main, "arduino", 8192, NULL, 1, NULL);
   }
 }
